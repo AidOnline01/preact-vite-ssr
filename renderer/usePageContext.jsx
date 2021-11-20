@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import { createContext } from 'preact';
+import { useContext } from 'preact/hooks';
 
 export { PageContextProvider };
 export { usePageContext };
 
-const Context = React.createContext(undefined);
+const Context = createContext(undefined);
 
 function PageContextProvider({ pageContext, children }) {
   return <Context.Provider value={pageContext}>{children}</Context.Provider>;

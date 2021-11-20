@@ -1,4 +1,4 @@
-import react from "@vitejs/plugin-react";
+import preact from "@preact/preset-vite";
 import ssr from "vite-plugin-ssr/plugin";
 
 export default {
@@ -11,5 +11,11 @@ export default {
       port: 7503
     }
   },
-  plugins: [react(), ssr()],
+  plugins: [preact(), ssr()],
+  resolve: {
+    alias: {
+      "react": "preact-compat",
+      "react-dom": "preact-dom"
+    }
+  }
 };

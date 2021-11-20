@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from 'preact/hooks';
 
 export { Counter };
 

@@ -1,5 +1,4 @@
-import ReactDOMServer from "react-dom/server";
-import React from "react";
+import preactRender from 'preact-render-to-string';
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr";
 import logoUrl from "./logo.svg";
@@ -10,11 +9,12 @@ export const passToClient = ["pageProps", "urlPathname"];
 
 async function render(pageContext) {
   const { Page, pageProps } = pageContext;
-  const pageHtml = ReactDOMServer.renderToString(
+  const pageHtml = preactRender(
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
     </PageShell>
   );
+
 
   // See https://vite-plugin-ssr.com/html-head
   const { documentProps } = pageContext;

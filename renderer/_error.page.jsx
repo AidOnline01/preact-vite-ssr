@@ -1,5 +1,3 @@
-import React from "react";
-
 export { Page };
 
 function Page({ is404 }) {
